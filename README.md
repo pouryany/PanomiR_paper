@@ -147,7 +147,7 @@ head(output0$DEP[,1:4])
     ## Pathway.REACTOME_GPCR_LIGAND_BINDING                 -12.24499 1.720745e-29
     ## Pathway.REACTOME_HDL_MEDIATED_LIPID_TRANSPORT        -11.89976 3.721198e-28
 
-\###Figure 3
+### Figure 3
 
 ``` r
 top.paths <- rownames(output0$DEP[1:6,])
@@ -196,7 +196,7 @@ autoplot(pca_res, data = covariates, colour = 'shortLetterCode')
 
 ![](README_files/figure-gfm/pca-1.png)<!-- -->
 
-\###Figure 4
+### Figure 4
 
 the function generates a network plot in a directory called Figures
 under designated output directory. In this case, the root directory.
@@ -260,18 +260,18 @@ plotCorPanels <- function(enriches, enriches0, ylims = 200){
         xlab("log(Number of miRNA targets)")+
         ylab(paste0( "- log(PanomiR p-value)")) +
         labs(title = paste0("PanomiR"))+
-        theme(plot.title = element_text(size=24, hjust = 0.5),
+        theme(plot.title = element_text(size=20, hjust = 0.5),
               axis.text=element_text(size=14),
-              axis.text.x = element_text(face = "bold",size = 14, angle = 0,
+              axis.text.x = element_text(face = "bold",size = 10, angle = 0,
                                          vjust = 1,hjust = 1),
-              axis.text.y =  element_text(size = 20),
-              axis.title=element_text(size=14),
-              strip.text = element_text(size = 14,angle = 90),
-              legend.position = "none") +
+              axis.text.y =  element_text(size = 14),
+              axis.title=element_text(size=10),
+              strip.text = element_text(size = 10,angle = 90),
+              legend.position = "none")+
         annotate("text", x = 5, y = 0.75* ylims, hjust = 0,
                  label = paste0("Correlation == ", signif(cor1$estimate,2) ),
                  parse = T,
-                 size  = 6)
+                 size  = 4)
     
     
     
@@ -282,18 +282,18 @@ plotCorPanels <- function(enriches, enriches0, ylims = 200){
         xlab("log(Number of miRNA target)")+
         ylab(paste0( "Number of enriched Pathways")) +
         labs(title = paste0("Enrichment"))+
-        theme(plot.title = element_text(size=24, hjust = 0.5),
+        theme(plot.title = element_text(size=20, hjust = 0.5),
               axis.text=element_text(size=14),
-              axis.text.x = element_text(face = "bold",size = 14, angle = 0,
+              axis.text.x = element_text(face = "bold",size = 10, angle = 0,
                                          vjust = 1,hjust = 1),
-              axis.text.y =  element_text(size = 20),
-              axis.title=element_text(size=14),
-              strip.text = element_text(size = 14,angle = 90),
+              axis.text.y =  element_text(size = 14),
+              axis.title=element_text(size=10),
+              strip.text = element_text(size = 10,angle = 90),
               legend.position = "none")+
         annotate("text", x = 5, y = 30, hjust = 0,
                  label = paste0("Correlation == ", signif(cor2$estimate,2) ),
                  parse = T,
-                 size  = 6)
+                 size  = 4)
     
     
     
@@ -304,18 +304,18 @@ plotCorPanels <- function(enriches, enriches0, ylims = 200){
         xlab("log(Number of miRNA target)")+
         ylab(paste0( "- log(Stouffer's p-value)")) +
         labs(title = paste0("Stouffer's method"))+
-        theme(plot.title = element_text(size=24, hjust = 0.5),
+        theme(plot.title = element_text(size=20, hjust = 0.5),
               axis.text=element_text(size=14),
-              axis.text.x = element_text(face = "bold",size = 14, angle = 0,
+              axis.text.x = element_text(face = "bold",size = 10, angle = 0,
                                          vjust = 1,hjust = 1),
-              axis.text.y =  element_text(size = 20),
-              axis.title=element_text(size=14),
-              strip.text = element_text(size = 14,angle = 90),
+              axis.text.y =  element_text(size = 14),
+              axis.title=element_text(size=10),
+              strip.text = element_text(size = 10,angle = 90),
               legend.position = "none")+
         annotate("text", x = 5, y = 0.75 * ylims , hjust = 0,
                  label = paste0("Correlation == ", signif(cor3$estimate,2) ),
                  parse = T,
-                 size  = 6)
+                 size  = 4)
     
     
     
@@ -326,18 +326,18 @@ plotCorPanels <- function(enriches, enriches0, ylims = 200){
         xlab("log(Number of miRNA target)")+
         ylab(paste0( "- log(Fisher's p-value)")) +
         labs(title = paste0("Fisher's method"))+
-        theme(plot.title = element_text(size=24, hjust = 0.5),
+        theme(plot.title = element_text(size=20, hjust = 0.5),
               axis.text=element_text(size=14),
-              axis.text.x = element_text(face = "bold",size = 14, angle = 0,
+              axis.text.x = element_text(face = "bold",size = 10, angle = 0,
                                          vjust = 1,hjust = 1),
-              axis.text.y =  element_text(size = 20),
-              axis.title=element_text(size=14),
-              strip.text = element_text(size = 14,angle = 90),
+              axis.text.y =  element_text(size = 14),
+              axis.title=element_text(size=10),
+              strip.text = element_text(size = 10,angle = 90),
               legend.position = "none")+
         annotate("text", x = 5, y = 0.75 * ylims, hjust = 0,
                  label = paste0("Correlation == ", signif(cor4$estimate,2) ),
                  parse = T,
-                 size  = 6)
+                 size  = 4)
     
     
     p_tot <- (p1 + p2)/(p3 + p4)
@@ -369,8 +369,8 @@ clust1_plot <- plotCorPanels(enriches, enriches0)
 clust1_plot +
     plot_annotation(title = 'Correlation of miRNA prioritzation and the number of gene targets',       
                     tag_levels = "A",
-                    theme = theme(plot.title   = element_text(size = 25, hjust = 0.5))
-                    ) & theme(plot.tag = element_text(size = 28))
+                    theme = theme(plot.title   = element_text(size = 20, hjust = 0.5))
+                    ) & theme(plot.tag = element_text(size = 20))
 ```
 
     ## Warning: Removed 2 rows containing missing values (geom_point).
@@ -380,7 +380,7 @@ clust1_plot +
 
 ![](README_files/figure-gfm/correlation%20panels-1.png)<!-- -->
 
-\###Supplementary figure 1
+### Supplementary figure 1
 
 Gene-based permutation of pathways has been pre-processed and provided
 in the corresponding file under the data directory.
@@ -424,7 +424,7 @@ ggplot(all_ps2, aes(x=value, color=dataset,
 
 ![](README_files/figure-gfm/supplementary%20KS%20test-1.png)<!-- -->
 
-\###Supplementary Figure 2
+### Supplementary Figure 2
 
 ``` r
 library(igraph)
@@ -526,7 +526,7 @@ pheatmap::pheatmap(tagz.mat,
 
 ![](README_files/figure-gfm/repeated_clusters-1.png)<!-- -->
 
-\###Supplemental Figures 3 and 4
+### Supplemental Figures 3 and 4
 
 The following chunk is computing intensive. The output is provided in
 the next chunk.
